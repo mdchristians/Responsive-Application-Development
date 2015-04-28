@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Matt Christians - hw1p2</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <link href="css/bareboot.css" rel="stylesheet">
+
+        <script> 
+        // The Array global object is a constructor to create an array.
+        // Both arrays are declared as global variables.
+        var slideImages = new Array();
+        var slideLinks = new Array();
+
+        /* 
+            The arguments is an object representing the arguments to the currently 
+            executing function, and the functions that called it.
+            
+            You cannot explicitly create an arguments object. 
+            The arguments object only becomes available when a function begins execution.
+
+            You can define a function with a pre-determined number of parameters or
+            an empty list of parameters. In either case, you can pass the same, lesser, or
+            larger number of arguments. So if you beforehand know the exact number of 
+            parameters a function needs and if you want reference the parameters in the function, 
+            go ahead with a fixed number of parameters. Otherwise, define a function without 
+            parameters and pass a necessary nymber of arguments when you call the function. 
+
+            In either case, you can access the arguments for the function via the arguments
+            object (it is not an array but array-like). arguemnts.length for the number of
+            arguments passed, and arguments[zeor-based index] to access a specific argument.
+        */
+
+        function slideShowImages() {
+            for (i = 0; i < arguments.length; i++) {
+                /* 
+                    The Image global object is a constructor used to create an object instance 
+                    (or simply, instance) of the Image. Note that this constructor exists 
+                    for historical reasons and returns an HTMLImageElement instance just 
+                    as document.createElement('img') would. The Image is a JS API for HTML5.
+
+                    The slideImages array will contain 5 instances of HTMLImageElement
+                */
+                slideImages[i] = document.createElement("img");  //or new Image();
+                slideImages[i].src = arguments[i];
+            }
+        }
+
+        function slideShowLinks() {
+            for (i = 0; i < arguments.length; i++) {
+                slideLinks[i] = arguments[i];
+            }    
+        }
+
+        //===============================================
+
+        //Add images to the array, plus corresponding target links, by calling the functions
+        slideShowImages("img/img1.jpg", "img/img2.jpg", "img/img3.jpg", "img/img4.jpg", "img/img5.jpg");
+        slideShowLinks("http://www.awwwards.com/", "https://scotch.io/", "http://tympanus.net/codrops/", "http://www.2ality.com/", "https://coderwall.com/welcome");
+
+        // * Three global variables
+        //Set the time period for each image, in miliseconds
+        var slideShowSpeed = 2000;
+
+        //Initialize indexes to 0.
+        var indexOfUrl = 0;                         //URLs are in the array
+        var indexOfHTMLImageElementInstance = 0;    //HTMLImageElement instnaces are in the array
+
+        function slideIt() {
+            //document.images returns a collection of the images in the current HTML document.
+            if (document.images == null) {
+                return;
+            }
+
+            //imgSlideShow is the ID of the <img> element below
+            document.images.imgSlideShow.src = slideImages[indexOfHTMLImageElementInstance].src;
+
+            //why this statement?
+            indexOfUrl = indexOfHTMLImageElementInstance;
+
+            //set the link for each image here
+            var foo = document.getElementById("waterfalls");
+            foo.href = slideLinks[indexOfUrl];
+            // one more statement here.
+            
+            
+
+            if (indexOfHTMLImageElementInstance < slideImages.length - 1) {
+                indexOfHTMLImageElementInstance++;
+            }
+            else {
+                indexOfHTMLImageElementInstance = 0;
+            }
+            //setTimeout(function, delay) is a Window object's method; or window.setTimeout(...)
+            //It calls the slideIt() function every, in this case, two seconds.
+            setTimeout("slideIt()", slideShowSpeed);
+        }
+
+        //call the function when the document is fully loaded
+        window.onload = slideIt;
+    </script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+        
+    <!-- Image Slideshow -->
+    <div class="center-text">
+        <a id="waterfalls" target="_blank">
+            <img id="imgSlideShow" name="imgSlideShow" border="0" width="300" height="375">
+        </a>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

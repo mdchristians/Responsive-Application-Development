@@ -1,0 +1,109 @@
+
+/* Table of Content
+==================================================
+  1. Document Setup
+  2. Navigation
+  3. Text Blocks
+  4. Other
+
+This is my new default CSS stylesheet navigator.  This way,
+I can find things easier until I minify the code at the end.
+
+*/
+
+
+/* =========================================================== 
+    1. Document Setup
+============================================================ */
+
+html {
+	background: #FFFFFF url("http://hmhbooks.com/chrisvanallsburg/images/backgroundnoise.jpg") repeat left top scroll;
+	height: 100%;
+	width: 100%;
+}
+
+body {
+	position: relative;
+	margin: 0 auto;
+	max-width: 960px;
+	margin-top: 0;
+	padding-bottom: 36px;
+	text-align: center;
+	font-size: 14px;
+	line-height: 17px;
+}
+
+iframe {
+	border-width: 5px;
+	border-color: #FBB03B;
+}
+
+/* =========================================================== 
+    2. Navigation
+============================================================ */
+
+.nav-center {  
+	text-align: center;
+	padding: 10px;
+}
+
+.nav-center > ul.nav {
+	display: inline-block;
+}
+
+.nav-center > ul.nav > li {
+	display: inline;
+}
+
+.nav-center > ul.nav > li > a {
+	float: left;
+	color: #FBB03B;
+	font-size: 24px;
+}
+
+/* =========================================================== 
+    3. Text Blocks
+============================================================ */
+
+.name {
+	font-weight: 300 !important;
+	font-size: 96px !important;
+	color: #7F7F7F !important;
+	margin-top: 0 !important;
+	padding-bottom: 10px;
+	padding-top: 30px;
+}
+
+.text-block {
+	text-align: left;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	color: #7F7F7F;
+	font-style: italic;
+	width: 960;
+	padding-left: 53.5px;
+	font-size: 14px;
+	line-height: 10px;
+}
+
+.quote-block {
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	color: #7F7F7F;
+	font-style: italic;
+	width: 960px;
+	padding-left: 200px;
+	padding-right: 200px;
+	font-size: 20px;
+	line-height: 24px;
+}
+
+/* =========================================================== 
+    4. Other
+============================================================ */
+
+
+
+
+

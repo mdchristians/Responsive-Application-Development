@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Matt Christians radhw2</title>
+
+    <!-- Latest compiled and minified CSS
+    ================================================== -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/rad.css">
+    <link rel="stylesheet" href="css/calculator.css">
+
+    <script src="js/calculator.js"></script>
+
+
+
+
+
+
+
+</script>
+
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="intro-rad">
+          <h1>Problem 4: Calculator</h1>
+        </div>
+      </header>
+
+      <section>
+      <div col="row">
+        <div class="col-md-12">
+        <form name="calcForm" class="wrapper">
+         <table class ="calculator">
+           <tr class="text">
+             <td>
+               <input type="text" id="exp" name="term">
+               <br>
+             </td>
+           </tr>
+           <tr class="buttons">
+             <td>
+               <input type="button" name="one" value=" 1 "
+               onclick="showOperands(1)">
+               <input type="button" name="two" value=" 2 "
+               onclick="showOperands(2)">
+               <input type="button" name="three" value=" 3 "
+               onclick="showOperands(3)">
+               <input type="button" name="plus" value=" + "
+               onclick="showOperands('+')">
+               <br>
+               <input type="button" name="four" value=" 4 "
+               onclick="showOperands(4)">
+               <input type="button" name="five" value=" 5 "
+               onclick="showOperands(5)">
+               <input type="button" name="six" value=" 6 "
+               onclick="showOperands(6)">
+               <input type="button" name="minus" value=" - "
+               onclick="showOperands('-')">
+               <br>
+               <input type="button" name="seven" value=" 7 "
+               onclick="showOperands(7)">
+               <input type="button" name="eight" value=" 8 "
+               onclick="showOperands(8)">
+               <input type="button" name="nine" value=" 9 "
+               onclick="showOperands(9)">
+               <input type="button" name="times" value=" x "
+               onclick="showOperands('*')">
+               <br>
+               <input type="button" name="clear" value=" c "
+               onclick="document.getElementById('exp').value=''">
+               <input type="button" name="zero" value=" 0 "
+               onclick="showOperands(0)">
+               <input type="button" name="DoIt" value=" = "
+               onclick="calcForm.exp.value = eval(calcForm.term.value)">
+               <input type="button" name="div" value=" / "
+               onclick="showOperands('/')">
+               <br>
+             </td>
+           </tr>
+         </table>
+       </form>
+       </div>
+       </div>
+
+     </section>
+
+   </div><!-- /.container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    
+  </body>
+  </html>

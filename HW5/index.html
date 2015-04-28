@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html> 
+<head> 
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
+	<title>CityMap RWD - Matt Christians</title>
+	
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
+	<link rel="stylesheet" href="css/styles.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	<nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">RWD Matt Christians</a>
+      </div>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="index.html"><i class="fa fa-home"></i> All Cities</a></li>
+        <li><a href="location.html"><i class="fa fa-rocket"></i> My Location</a></li>
+        <li><a href="tracking.html"><i class="fa fa-globe"></i> Tracking</a></li>
+      </ul>
+    </div>
+  </nav>
+
+	<section>
+		<div id="map-section">
+			<div id="map"></div>
+		</div>
+
+		<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+		<script src="js/custom.js"></script>
+		
+		<script>
+			var markers=[ 
+				['New York', 40.712784,-74.005941, 'skip-icon','New York, New York'], 
+				['Minneapolis', 44.977753, -93.265011, 'skip-icon','Minneapolis, Minnesota'], 
+				['Seattle', 47.606209, -122.332071, 'skip-icon','Seattle, Washington']
+			]; 
+		</script>
+
+	</section>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Matt Christians radhw2</title>
+
+    <!-- Latest compiled and minified CSS
+    ================================================== -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/rad.css">
+    <script src="js/script.js"></script>
+
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="intro-rad">
+        <h1>Problem 3: Conditional</h1>
+      </div>
+    </header>
+
+    <!-- Start Problem Section -->
+    <section class="rad-problem">
+      <div class="row">
+        <div class="col-md-12">
+          <h1>What's your dream job?</h1>
+          <select id="ddlJob" class="rad-external">
+            <option>My Dream Job Is...</option>
+            <option value="1">Programmer</option>
+            <option value="2">Data Scientist</option>
+            <option value="3">Database Administrator</option>
+            <option value="4">Software Engineer</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <button class="btn btn-default" onclick="showSkillsIf()">showSkillsIf</button>
+          <button class="btn btn-default" onclick="showSkillsSwitch()">showSkillsSwitch</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-break"></div>
+
+    <!-- Start Code Proof -->
+    <section class="rad-code">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+          <h3 id="desc"></h3>
+        </div>
+      </div>
+    </section>
+    
+    </div><!-- /.container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    
+  </body>
+</html>

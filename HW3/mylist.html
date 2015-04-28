@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="UTF-8">
+	<title>RAD Wedding Directory</title>
+
+	<!-- STYLES
+	========================================= -->
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+
+</head>
+
+<body>
+	
+	<!-- START MYAPP
+	========================================= -->
+	<div class="global-wrapper" ng-app="myApp">
+
+		<!-- Nav Section -->
+		<nav class="navbar navbar-default" ng-controller="navCtrl">
+			<div class="container-fluid">
+				<div class="nav-header">
+					<a href="mylist.html" class="navbar-brand hidden-xs">Wedding Directory</a>
+					<ul class="nav navbar-nav">
+						<li ng-repeat="navLink in nav.navItems" ng-class="{active : $index === nav.selectedIndex}">
+							<a class="text-center" ng-click="nav.navClick($index)" ng-href="#/{{navLink}}">{{navLink}}</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<!-- Title Panel -->
+		<div class="container">
+			<div class="row panel panel-primary" ng-controller="homeCtrl">
+				<div class="panel-heading">
+					<h2 class="panel-title">Wedding Directory</h2>
+				</div>
+
+				<!-- Contact Panel -->
+				<div class="col-xs-5 panel-body">
+					<ul class="list-group">
+						<li class="list-group-item"> <h4>Contacts:</h4>
+							<input class="form-control" placeholder="Seach Your Contacts" type="text" ng-model="searchText">
+							<contact class="list-group-item" ng-repeat="contact in contacts | orderBy: 'name' | filter: searchText "></contact>
+						</li>
+					</ul> 
+				</div>
+
+				<!-- Angular's ng-view for Contacts -->
+				<div class="col-xs-7">
+					<div class="list-group panel-body">
+						<div ng-view></div>
+					</div>
+				</div>
+			</div>
+			<div class="row panel panel-default">
+				<div class="col-xs-12">
+					<div class="panel-body">
+						<p>Simple app I made while planning for my wedding this summer.  Although we didn't use it, it was a good intro to angular and made a nice list!  Currently working on that project now at <a href="http://bekahandmatt.com">BekahAndMatt.com</a>.</p>
+						<p>- Matt</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- DEFAULT.HTML TEMPLATE
+		========================================= -->
+		<script type="text/ng-template" id="default.html">
+			<div class="alert alert-success text-center" ng-class="{hidden : !removed}"> {{removed}}</div>
+			<div class="list-group-item text-center">Please select a contact</div>
+		</script>
+
+		<!-- CONTACT_INFO.HTML TEMPLATE
+		========================================= -->
+		<script type="text/ng-template" id="contact_info.html">
+			<div class="list-group-item">
+				<h3 class="text-center">{{currentContact.name}}</h3>
+				<p>Home Address: {{currentContact.homeaddress}}</p>
+				<p>City/State: {{currentContact.hometown}}</p>
+				<p>Invite Sent: {{currentContact.invitestatus}}</p>
+				<p>Wedding Status Notes:</p>
+				<p class="well well-lg">{{currentContact.wedstatus}}</p>
+
+				<a ng-href="#/edit/{{contacts.indexOf(currentContact)}}">
+					<button class="btn btn-default">
+						<span class="glyphicon glyphicon-pencil"></span><span> - Edit</span>
+					</button>
+				</a>
+
+				<a href="#/"><button class="btn btn-default" ng-click="removeContact(currentContact)">
+					<span class="glyphicon glyphicon-remove"></span><span> - Remove</span>
+				</button></a>
+			</div>
+		</script>
+
+		<!-- CONTACT_FORM.HTML TEMPLATE
+		========================================= -->
+		<script type="text/ng-template" id="contact_form.html">
+			<div ng-controller="addContactCtrl">
+				<div class="list-group-item">
+
+					<div class="form-group">
+
+						<p><label for="name">name: </label> <input id="name" class="form-control" type="text" ng-model="currentContact.name"> </p>
+						<p><label for="homeaddress">Home Address:</label> <input id="homeaddress" class="form-control" type="text" ng-model="currentContact.homeaddress"> </p>
+						<p><label for="hometown">City/State:</label> <input id="hometown" class="form-control" type="text" ng-model="currentContact.hometown"> </p>
+						<p><label for="invitestatus">Invite Sent:</label> <input id="invitestatus" class="form-control" type="text" ng-model="currentContact.invitestatus"> </p>
+						<p><label for="wedstatus">Wedding Status Notes:</label></p>
+						<textarea class="form-control" id="wedstatus" rows="3" ng-model="currentContact.wedstatus"></textarea>
+					</div>
+
+					<a ng-if="path === '/add' " ng-href="#/contact-info/{{ contacts.length - 1 }}" ng-click="addContact()">
+						<button class="btn btn-default">
+							<span class="glyphicon glyphicon-ok"></span>
+							<span> Add</span>
+						</button>
+					</a>
+
+					<a ng-if="path !== '/add'" ng-href="#/contact-info/{{index}}">
+						<button class="btn btn-default">
+							<span class="glyphicon glyphicon-ok"></span>
+							<span>Save Edits</span>
+						</button>
+					</a>
+
+					<a href="#/">
+						<button class="btn btn-default">
+							<span class="glyphicon glyphicon-remove"></span><span>  Cancel</span>
+						</button>
+					</a>
+				</div>
+			</div>
+		</script>
+
+		<!-- CONTACT.HTML TEMPLATE
+		========================================= -->
+		<script type="text/ng-template" id="contact.html">
+			<a ng-href="#/contact-info/{{contacts.indexOf(contact)}}">
+				{{contact.name}}
+			</a>
+		</script>
+	</div>
+
+	<!-- SCRIPTS
+	========================================= -->
+	<script src='http://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js'></script>
+	<script src='http://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-route.min.js'></script>
+	<script src="js/app.js"></script>
+
+</body>
+</html>

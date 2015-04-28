@@ -1,0 +1,43 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+html {
+	height: 100%;
+	width:100%;
+}
+
+body {
+  padding-top: 70px;
+  width: 100%;
+  font-family: 'Open Sans', sans-serif;
+  background-color: #F2F2F2;
+}
+
+section {
+	padding: 70px 80px;
+}
+
+.intro-rad {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+.rad-problem {
+	text-align: center;
+}
+
+.rad-internal {
+	padding: 20px;
+}
+
+.rad-external {
+	margin: 20px;
+}
+
+.rad-code {
+	padding: 70px 80px;
+	text-align: center;
+}
+
+.breathe {
+	padding-top: 30px;
+}
